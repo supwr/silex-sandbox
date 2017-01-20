@@ -1,0 +1,7 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    {% for usuario in usuarios %}
+		{{ usuario.nome }}<br>
+    {% endfor %}
+{% endblock %}
