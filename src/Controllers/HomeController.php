@@ -19,8 +19,8 @@ class HomeController implements ControllerProviderInterface{
 	}
 
 	public function index(Application $app, Request $request){
-		$q = $app["db"]->query("SELECT * FROM usuarios WHERE id = 1");
-		$usuarios = $q->fetchAll();
+
+		$usuarios = $app['orm.em']->getRepository("Entities\Usuario")->findAll();
 
 		return new Response($app["twig"]->render("home/index.html.twig", array("usuarios" => $usuarios)));
 	}
